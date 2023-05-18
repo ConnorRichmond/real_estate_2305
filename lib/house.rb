@@ -11,4 +11,13 @@ class House
   def add_room(data)
     rooms << data
   end
+
+  def above_market_average?
+    if price >= 500000
+      return true
+    else
+      return false
+    end
+  end
+
 end

@@ -20,4 +20,10 @@ describe House do
     house.add_room(room_2)
     expect(house.rooms).to contain_exactly(room_1, room_2)
   end
+
+  it 'checks against market' do
+    house1 = House.new('$400000', "123 sugar lane")
+    expect(house1.above_market_average?).to eq(false)
+    house2 = House.new('$654981', "124 sugar lane")
+  end
 end
