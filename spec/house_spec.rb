@@ -63,4 +63,16 @@ describe House do
 
     expect(house.details).to eq({'price' => 234255346, 'address' => '155 big money ln'})
   end
+
+  it 'show price per square feet' do
+    house = House.new("$400000", "123 sugar lane")
+
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
+    room_3 = Room.new(:living_room, 25, '15')
+    room_4 = Room.new(:basement, 30, '41')
+
+    house.add_rooms(room_1, room_2, room_3, room_4)
+    expect(house.price_per_sf).to eq(210.53)
+  end
 end
