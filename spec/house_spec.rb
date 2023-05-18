@@ -44,4 +44,17 @@ describe House do
     expect(house.rooms_from_category(:living_room)).to eq(1)
     expect(house.rooms_from_category(:basement)).to eq(1)
   end
+
+  it 'shows total area of house' do
+    house = House.new('234255346', '155 big money ln')
+
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
+    room_3 = Room.new(:living_room, 25, '15')
+    room_4 = Room.new(:basement, 30, '41')
+
+    house.add_rooms(room_1, room_2, room_3, room_4)
+
+    expect(house.area).to eq(1900)
+  end
 end
