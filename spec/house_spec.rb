@@ -75,4 +75,16 @@ describe House do
     house.add_rooms(room_1, room_2, room_3, room_4)
     expect(house.price_per_sf).to eq(210.53)
   end
+
+  it 'sorts rooms by area' do
+    house = House.new("$400000", "123 sugar lane")
+
+    room_1 = Room.new(:bedroom, 10, '13') #130
+    room_2 = Room.new(:bedroom, 11, '15') #165
+    room_3 = Room.new(:living_room, 25, '15') #375
+    room_4 = Room.new(:basement, 30, '41') #1230
+
+    house.add_rooms(room_4, room_2, room_1, room_3)
+    expect(house.rooms_sorted_by_area).to eq([room_4, room_3, room_2, room_1])
+  end
 end
