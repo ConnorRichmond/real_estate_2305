@@ -57,4 +57,10 @@ describe House do
 
     expect(house.area).to eq(1900)
   end
+
+  it 'gives details' do
+    house = House.new('234255346', '155 big money ln')
+
+    expect(house.details).to eq({'price' => 234255346, 'address' => '155 big money ln'})
+  end
 end
