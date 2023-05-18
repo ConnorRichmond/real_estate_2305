@@ -8,8 +8,9 @@ class House
     @rooms = rooms
   end
 
-  def add_room(data)
-    rooms << data
+  #splat to accept any number of arguments
+  def add_rooms(*rooms)
+    @rooms.concat(rooms.flatten)
   end
 
   def above_market_average?
@@ -19,5 +20,6 @@ class House
       return false
     end
   end
+
 
 end
