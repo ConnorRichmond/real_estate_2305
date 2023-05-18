@@ -22,4 +22,8 @@ class House
   end
 
 
+  def rooms_from_category(category)
+    @rooms.count { |room| room.category == category }
+  end
+
 end
