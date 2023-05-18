@@ -87,4 +87,16 @@ describe House do
     house.add_rooms(room_4, room_2, room_1, room_3)
     expect(house.rooms_sorted_by_area).to eq([room_4, room_3, room_2, room_1])
   end
+
+  it 'groups by category' do
+    house = House.new("$400000", "123 sugar lane")
+
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
+    room_3 = Room.new(:living_room, 25, '15')
+    room_4 = Room.new(:basement, 30, '41')
+
+    house.add_rooms(room_1, room_2, room_3, room_4)
+    expect(house.rooms_by_caregory).to eq({:bedroom=>[room_1, room_2], :living_room=> [room_3], :basement=> [room_4]})
+  end
 end

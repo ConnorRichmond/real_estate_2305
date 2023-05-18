@@ -45,4 +45,8 @@ class House
   def rooms_sorted_by_area
     rooms.sort_by { |room| room.area }.reverse
   end
+
+  def rooms_by_caregory
+    rooms.group_by { |room| room.category}
+  end
 end
